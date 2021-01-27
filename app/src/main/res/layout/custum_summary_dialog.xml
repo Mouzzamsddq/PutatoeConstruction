@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:backgroundTint="@color/putatoeBackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Name"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/no_border"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/putatoeGreenColor"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:id="@+id/customerNameTextView"
+        android:layout_marginTop="10dp"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Summary"
+        android:background="@drawable/border"
+        android:textColor="@color/putatoeGreenColor"
+        android:layout_below="@id/customerNameTextView"
+        android:id="@+id/text3"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/layout1"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/text3"
+        android:orientation="horizontal">
+
+
+     <RelativeLayout
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:background="@drawable/outgoing_green_border"
+         android:padding="10dp"
+         >
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Total Incoming"
+             android:textColor="@color/white"
+             android:textSize="18sp"
+             android:id="@+id/text1"
+             android:layout_centerHorizontal="true"/>
+
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/text1"
+             android:text="₹2000"
+             android:textSize="18sp"
+             android:textColor="@color/white"
+             android:textStyle="bold"
+             android:id="@+id/incomingTextView"/>
+
+     </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/outgoing_border">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Outgoing"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:id="@+id/text2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="₹3000"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/text2"
+                android:id="@+id/outgoingTextView"   />             android:layout_centerHorizontal="true"/>
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="OK"
+       android:layout_marginEnd="10dp"
+       android:layout_marginBottom="10dp"
+       android:background="@drawable/border"
+       android:textColor="@color/putatoeGreenColor"
+       android:layout_below="@id/layout1"
+       android:layout_marginTop="20dp"
+       android:id="@+id/okButton"
+       android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

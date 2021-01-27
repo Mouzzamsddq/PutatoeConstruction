@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_activitye"
+        android:icon="@drawable/activity_icon"
+        android:title="All Activity" />
+
+
+
+    <item
+        android:id="@+id/navigation_summary"
+        android:icon="@drawable/order"
+        android:title="Summary" />
+
+
+    <item
+        android:id="@+id/navigation_calculator"
+        android:title="Calculator"
+        android:icon="@drawable/calculator_icon"/>
+
+
+    <item android:id="@+id/navigation_trackOrders"
+        android:title="Track Orders"
+        android:icon="@drawable/track_order_icon"/>
+
+
+</menu>

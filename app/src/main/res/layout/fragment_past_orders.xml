@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/putatoeBackground"
+    tools:context=".Fragment.PastOrdersFragment">
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/pastOrdersRecyclerView"/>
+
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+       android:padding="10dp"
+       android:visibility="gone"
+       android:id="@+id/noOrderLayout"
+       android:background="@drawable/no_border"
+      android:layout_marginEnd="20dp"
+       android:layout_centerInParent="true"
+      android:orientation="vertical">
+
+
+
+      <ImageView
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+         android:src="@drawable/error_putatoe"
+         android:layout_gravity="center"
+         />
+
+
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         android:text="No Past Orders"
+         android:textSize="20sp"
+         android:textStyle="bold"
+         android:textColor="@color/putatoeGreenColor"
+         android:layout_gravity="center"
+         android:layout_marginTop="20dp"/>
+
+   </LinearLayout>
+
+
+</RelativeLayout>

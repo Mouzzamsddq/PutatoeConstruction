@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/putatoeBackground"
+    android:layout_height="match_parent"
+    tools:context=".SpecificOrdersActivity">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appBarLayout"
+        android:background="@color/putatoeGreenColor">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/putatoeGreenColor">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/backButton"
+                    android:src="@drawable/ic_action_arrow"
+                    android:layout_centerVertical="true"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/backButton"
+                    android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Customer Name"
+                    android:textSize="16sp"
+                    android:id="@+id/customerNameTextView"/>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="Customer Number"
+                        android:id="@+id/customerNumberTextView"/>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/call_icon"
+                    android:id="@+id/callImageView"
+                    android:layout_toLeftOf="@+id/summaryIcon"
+                    android:layout_marginEnd="10dp"/>
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/summaryIcon"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_action_article"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"/>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/appBarLayout"
+        android:textColor="@color/putatoeGreenColor"
+        android:text="All Orders"
+        android:textSize="16sp"
+        android:id="@+id/allOrdersTextView"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/allOrdersTextView"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/view"
+        android:id="@+id/specicOrdersRecyclerView"/>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_above="@id/layout"
+        android:background="@color/putatoeGreenColor"
+        android:id="@+id/view"/>
+
+
+
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/no_border"
+       android:id="@+id/layout"
+       android:layout_alignParentBottom="true">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_margin="16dp"
+           android:orientation="horizontal">
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_weight="1"
+               android:id="@+id/IncomingLayout"
+               android:background="@drawable/no_border"
+               android:backgroundTint="#81C784"
+               android:paddingLeft="20dp"
+               android:paddingTop="5dp"
+               android:layout_margin="5dp"
+               android:paddingBottom="5dp"
+               android:paddingRight="20dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Advance"
+                   android:textSize="14sp"
+                   android:layout_gravity="center"
+                   android:textColor="@color/white"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="₹12000"
+                   android:id="@+id/income"
+                   android:layout_marginTop="5dp"
+                   android:textStyle="bold"
+                   android:textSize="14sp"
+                   android:layout_gravity="center"
+                   android:textColor="@color/white"/>
+
+
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_weight="1"
+               android:background="@drawable/outgoing_border"
+               android:id="@+id/outgoingLayout"
+               android:paddingLeft="20dp"
+               android:layout_margin="5dp"
+               android:paddingTop="5dp"
+               android:paddingBottom="5dp"
+               android:paddingRight="20dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Outstanding"
+                   android:textSize="14sp"
+                   android:layout_gravity="center"
+                   android:textColor="@color/white"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="₹12000"
+                   android:id="@+id/Outcome"
+                   android:layout_marginTop="5dp"
+                   android:textStyle="bold"
+                   android:textSize="14sp"
+                   android:layout_gravity="center"
+                   android:textColor="@color/white"/>
+
+
+           </LinearLayout>
+
+
+           <RelativeLayout
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:id="@+id/addLayout"
+               android:layout_gravity="center"
+               android:background="@drawable/fab_border"
+               android:backgroundTint="@color/putatoeGreenColor"
+               >
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_centerInParent="true"
+                   android:src="@drawable/add_icon"/>
+
+           </RelativeLayout>
+
+
+       </LinearLayout>
+
+   </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

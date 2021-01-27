@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/rootRelativeLayout"
+    android:background="@drawable/login_page_background"
+    android:layout_height="match_parent">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="40dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/putatoe"
+                android:id="@+id/putatoeIconImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/loginText"
+                android:layout_below="@+id/putatoeIconImageView"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/putatoeIconImageView"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Login"
+                        android:textColor="#027e8b"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="or"
+                        android:textSize="22sp"
+                        android:textColor="#027e8b"
+                        android:layout_marginLeft="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Signup"
+                        android:textColor="#027e8b"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:layout_marginLeft="8dp"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#707070"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/no_border"
+                android:layout_below="@id/loginText"
+                android:layout_marginTop="20dp"
+                android:padding="5dp"
+                android:id="@+id/selectLayout"
+                android:backgroundTint="@color/putatoeGreenColor"
+                android:orientation="horizontal">
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Buisness"
+                    android:onClick="selectBuisness"
+                    android:background="@drawable/border"
+                    android:padding="5dp"
+                    android:textColor="@color/putatoeGreenColor"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:id="@+id/selectBuisnessTextView"
+                    android:textColorHint="@color/putatoeGreenColor"/>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/login_border"
+                android:layout_below="@id/selectLayout"
+                android:layout_marginTop="30dp"
+                android:padding="8dp"
+                android:id="@+id/mobileNumberLayout">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+91"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:textColor="#707070"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#707070"
+                    android:layout_height="match_parent"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:id="@+id/mobileInputEditText"
+                    android:background="@drawable/no_border"
+                    android:textSize="16sp"
+                    android:textColor="#707070"
+                    android:textColorHint="#707070"
+                    android:hint="Mobile Number*"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/privacyText"
+                android:text="We'll never share your number with anyone else"
+                android:layout_below="@+id/mobileNumberLayout"
+                android:layout_marginTop="5dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/checkBoxLinearLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/privacyText"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#000000"
+                    android:id="@+id/checkTermCheckBox"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@string/hyperlink"
+                    android:id="@+id/termsAndConditionTextView"/>
+
+
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login as Employee"
+                android:textColor="@color/white"
+                android:background="@drawable/login_border"
+                android:layout_below="@+id/checkBoxLinearLayout"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/putatoeGreenColor"
+                android:id="@+id/continueLoginButton"/>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login as Customer"
+                android:textColor="@color/white"
+                android:background="@drawable/login_border"
+                android:layout_below="@+id/continueLoginButton"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/putatoeGreenColor"
+                android:id="@+id/customerLoginButton"/>
+
+
+
+
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incorrect...!"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_below="@id/customerLoginButton"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                android:id="@+id/incorrectTextView"
+                android:layout_centerHorizontal="true"/>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                android:layout_below="@id/checkBoxLinearLayout"
+                android:id="@+id/progressLinearLayout"
+                android:background="@drawable/login_border"
+                android:backgroundTint="@color/putatoeGreenColor"
+                android:padding="10dp">
+
+                <ProgressBar
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/progressView"
+                    android:indeterminateTint="@color/white"
+                    android:progressTint="@color/white"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
+
+
+
+
+

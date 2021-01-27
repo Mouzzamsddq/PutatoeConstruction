@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/putatoeGreenColor"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/customSpinner"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/spinnerIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:src="@drawable/putatoe" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textSpinner"
+            android:text="Cement"
+            android:layout_marginLeft="8dp"
+            android:padding="2dp"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">PutatoeConstructionServiceProvider</string>
+    <string name="hyperlink">I agree to all the <a href="https://putatoe-restapis.herokuapp.com">Terms &amp; Conditions</a></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="database_url">https://putatoeapp.firebaseio.com/PUTATOECONSTRUCTION/</string>
+
+    <string-array name="filteritems">
+        <item>None</item>
+        <item>Cash</item>
+        <item>Bricks</item>
+        <item>Cement</item>
+        <item>Maurang</item>
+        <item>Baalu</item>
+        <item>Sariya</item>
+        <item>Tiles</item>
+        <item>Discount</item>
+
+
+    </string-array>
+
+    <string-array name="quantityList">
+
+        <item>None</item>
+        <item>Bricks</item>
+        <item>Packets</item>
+        <item>Ton</item>
+        <item>Truck</item>
+        <item>Piece</item>
+        <item>Tempo</item>
+        <item>Trolley</item>
+        <item>Cash</item>
+
+
+    </string-array>
+</resources>

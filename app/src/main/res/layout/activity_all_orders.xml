@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rootRelativeLayout"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/putatoeGreenColor"
+        android:id="@+id/appBarLayout">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/putatoeGreenColor"
+                android:layout_height="wrap_content">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buisness Name"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:id="@+id/buisnessNameTextView"
+                    android:textSize="18sp"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log Out"
+                    android:textColor="@color/white"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:id="@+id/logoutTextView"
+                    android:layout_marginEnd="10dp"/>
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/summaryIcon"
+                    android:layout_toLeftOf="@id/logoutTextView"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_action_article"
+                    android:layout_marginEnd="10dp"/>
+
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@id/appBarLayout"
+        android:id="@+id/orderDetailsRecyclerView"/>
+
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:duration="800"
+        android:layout_below="@id/appBarLayout"
+        android:id="@+id/shimmerViewContainer">
+
+        <include layout="@layout/dummy_layout"/>
+
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:id="@+id/noOrderLayout"
+        android:background="@drawable/no_border"
+        android:layout_marginEnd="20dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/error_putatoe"
+            android:layout_gravity="center"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Orders"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/putatoeGreenColor"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:id="@+id/IncomingLayout"
+            android:background="@drawable/no_border"
+            android:backgroundTint="#81C784"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:layout_margin="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Advance"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹12000"
+                android:id="@+id/income"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:background="@drawable/outgoing_border"
+            android:id="@+id/outgoingLayout"
+            android:paddingLeft="20dp"
+            android:layout_margin="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Outstanding"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹12000"
+                android:id="@+id/Outcome"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/putatoeImageView"
+        android:src="@drawable/putatoe"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/putatoeImageView"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Name"
+            android:textSize="16sp"
+            android:id="@+id/customerNameTextView"
+            android:textColor="@color/putatoeGreenColor"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Number"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:id="@+id/customerNumberTextView"
+            android:textStyle="bold"/>
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp"
+        android:id="@+id/outstandingLayout"
+        android:background="@drawable/outgoing_border"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Outstanding"
+            android:id="@+id/advanceTextView"
+            android:textColor="@color/white"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:id="@+id/outstandingTextView"
+            android:textStyle="bold"
+            android:text="₹8000"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

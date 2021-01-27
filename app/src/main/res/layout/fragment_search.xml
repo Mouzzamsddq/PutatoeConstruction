@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SearchFragment">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:id="@+id/searchLayout"
+        android:background="?android:attr/windowBackground"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/search_icon"
+            android:id="@+id/serachImageView"/>
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search by mobile number"
+            android:padding="5dp"
+            android:id="@+id/searchEditText"
+            android:textColor="@color/putatoeGreenColor"
+            android:background="@drawable/border"
+            android:layout_marginStart="10dp"/>
+
+
+
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchRecyclerView"
+        android:layout_below="@+id/searchLayout"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"
+        android:visibility="visible"
+        android:id="@+id/noOrderLayout"
+        android:background="@drawable/no_border"
+        android:backgroundTint="@color/putatoeBackground"
+        android:layout_marginEnd="20dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/error_putatoe"
+            android:layout_gravity="center"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Customers"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/putatoeGreenColor"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

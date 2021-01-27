@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:backgroundTint="@color/putatoeBackground"
+    android:layout_height="wrap_content"
+    android:background="@drawable/no_border">
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/error_putatoe"
+        android:id="@+id/imageView"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sorry you are unable to login as employee because you are not the employee of the Gangotri constructions"
+        android:textAlignment="center"
+        android:textColor="@color/putatoeGreenColor"
+        android:layout_below="@id/imageView" />
+
+
+
+
+
+
+
+</RelativeLayout>

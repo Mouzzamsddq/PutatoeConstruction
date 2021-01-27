@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayoutOtp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Enter OTP"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:id="@+id/otpTextview"
+        android:textColor="@color/putatoeGreenColor"
+        android:textStyle="bold"
+        android:background="#EEEEEE"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/linear"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/otpTextview"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:textSize="18sp"
+            android:inputType="number"
+            android:background="@drawable/border"
+            android:cursorVisible="true"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:id="@+id/firstOtpEditText"
+            android:focusable="true"/>
+
+        <EditText
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/secondOtpEditText"
+            android:focusable="true"/>
+
+        <EditText
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:textSize="18sp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/thirdOtpEditText"
+            android:focusable="true"/>
+
+        <EditText
+            android:layout_width="40dp"
+            android:textSize="18sp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/fourthOtpEditText"
+            android:focusable="true"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linear">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:id="@+id/cancelButton"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/putatoeGreenColor"
+            android:background="#FFFF"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/putatoeGreenColor"
+            android:background="#FFFF"
+            android:id="@+id/confirmButton"/>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</RelativeLayout>

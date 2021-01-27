@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.AllActivityFragment">
+
+
+
+   <com.google.android.material.appbar.AppBarLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/appBarLayout"
+       android:background="@color/putatoeGreenColor">
+
+       <androidx.appcompat.widget.Toolbar
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/toolbar">
+
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="All Orders"
+                   android:textColor="@color/white"
+                   android:layout_centerVertical="true"
+                   android:textSize="16sp"/>
+
+           </RelativeLayout>
+
+       </androidx.appcompat.widget.Toolbar>
+
+
+   </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/putatoeGreenColor"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="@color/putatoeGreenColor"
+        android:background="?android:attr/windowBackground"
+        android:layout_below="@id/appBarLayout"
+        android:id="@+id/tabLayout"
+        app:tabIndicatorHeight="2dp"/>
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tabLayout"
+        android:id="@+id/viewPager"/>
+
+
+
+
+</RelativeLayout>

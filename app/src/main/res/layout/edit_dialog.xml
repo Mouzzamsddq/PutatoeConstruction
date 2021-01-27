@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/putatoeBackground"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Order"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:id="@+id/edit"
+        android:padding="10dp"
+        android:background="@drawable/no_border"
+        android:backgroundTint="@color/putatoeGreenColor"
+        android:textStyle="bold"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:id="@+id/statusLayout"
+        android:orientation="horizontal">
+
+
+
+        <RadioButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:buttonTint="@color/putatoeGreenColor"
+            android:id="@+id/statusRadioButton"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            android:id="@+id/editStatusTextView"
+            android:text="Edit Order Status"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/putatoeGreenColor"/>
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statusLayout"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:id="@+id/completionLayout"
+        android:orientation="horizontal">
+
+
+
+        <RadioButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/putatoeGreenColor"
+            android:id="@+id/completionRadioButton"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            android:id="@+id/editDateTextView"
+            android:text="Change Completion Date"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/putatoeGreenColor"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/completionLayout"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            android:id="@+id/okButton"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/no_border"
+            android:backgroundTint="@color/putatoeGreenColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelButton"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_toLeftOf="@id/okButton"
+            android:layout_marginEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/no_border"
+            android:backgroundTint="@color/putatoeGreenColor"/>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
