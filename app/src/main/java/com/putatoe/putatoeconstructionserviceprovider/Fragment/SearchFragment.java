@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.putatoe.putatoeconstructionserviceprovider.Adapter.SearchAdapter;
@@ -69,6 +70,10 @@ public class SearchFragment extends Fragment {
     List<String> employeeList;
 
 
+    //Create a progress abr object
+    private ProgressBar circularProgressBar;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,10 +87,17 @@ public class SearchFragment extends Fragment {
         outstandingList = new ArrayList<>();
         advanceList = new ArrayList<>();
         noOrderLayout = view.findViewById(R.id.noOrderLayout);
+        //.init the circular progress bar
+        circularProgressBar = view.findViewById(R.id.circularProgressBar);
         noOrderLayout.setVisibility(View.INVISIBLE);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         searchRecyclerView.setLayoutManager(linearLayoutManager);
         searchList = new ArrayList<>();
+
+        //attach search adapter to the recycler view
+        searchAdapter = new SearchAdapter(getContext() , searchList);
+        searchRecyclerView.setAdapter(searchAdapter);
+
         Paper.init(getContext());
         employeeList = Paper.book().read("EmployeeList");
 
@@ -130,7 +142,6 @@ public class SearchFragment extends Fragment {
                 }
 
 
-//                 getFilteredList(s.toString());
 
 
             }
@@ -141,15 +152,9 @@ public class SearchFragment extends Fragment {
 
 
 
-
-
-
-
-
             }
         });
 
-        Log.d("kkk","Employee List:"+employeeList.toString());
 
         getAllNumbers();
 
@@ -169,36 +174,36 @@ public class SearchFragment extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                searchList.clear();
-                outstandingList.clear();
-                advanceList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren())
-                {
+                if(isAdded()) {
+                    Log.d("kkk","isAdded: all nmber true");
+                    searchList.clear();
+                    outstandingList.clear();
+                    advanceList.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
 
+                        if (Paper.book().read("userOrService").equals("owner")) {
+                            if (!employeeList.contains(dataSnapshot.getKey())) {
+                                searchList.add(dataSnapshot.getKey());
+                            }
+                        } else {
+                            searchList.add(dataSnapshot.getKey());
+                        }
 
-                   if(Paper.book().read("userOrService").equals("owner"))
-                   {
-                       if(!employeeList.contains(dataSnapshot.getKey()))
-                       {
-                           searchList.add(dataSnapshot.getKey());
-                       }
-                   }
-                   else
-                   {
-                       searchList.add(dataSnapshot.getKey());
-                   }
+                    }
 
+                    sortSearchList(searchList);
+
+
+                    if (searchList.isEmpty()) {
+                        noOrderLayout.setVisibility(View.VISIBLE);
+                        searchRecyclerView.setVisibility(View.INVISIBLE);
+                    }
                 }
-
-                sortSearchList(searchList);
-
-                if(searchList.isEmpty())
+                else
                 {
-                    noOrderLayout.setVisibility(View.VISIBLE);
-                    searchRecyclerView.setVisibility(View.INVISIBLE);
+                    Log.d("kkk","is Added all number:false");
                 }
-
 
 
             }
@@ -246,15 +251,9 @@ public class SearchFragment extends Fragment {
                     }
                 }
 
-
-
-
-
                 sortSearchList(searchList);
 
 
-//                searchAdapter = new SearchAdapter(getContext() , searchList);
-//                searchRecyclerView.setAdapter(searchAdapter);
 
 
             }
@@ -264,8 +263,6 @@ public class SearchFragment extends Fragment {
 
             }
         });
-
-
 
 
     }
@@ -372,12 +369,6 @@ public class SearchFragment extends Fragment {
                 sortSearchList(Paper.book().read("SearchList"));
 
 
-//               searchAdapter = new SearchAdapter(getContext() , Paper.book().read("SearchList") );
-//                searchRecyclerView.setAdapter(searchAdapter);
-
-
-//                searchAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -442,74 +433,18 @@ public class SearchFragment extends Fragment {
     private void sortSearchList(List<String> searchList)
     {
 
+        if(isAdded()) {
 
+            Log.d("kkk","is Added:sort search List:true");
 
-
-        for(String contactNumber : searchList)
-        {
-            getSpecificOutstanding(contactNumber);
-        }
-
-
-        Handler handler = new Handler();
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-
-                List<SearchOutstanding>  newOutstandingList = new ArrayList<>();
-                List<SearchOutstanding>  newAdvanceList = new ArrayList<>();
-
-
-                Collections.sort(outstandingList, new Comparator<SearchOutstanding>() {
-                    @Override
-                    public int compare(SearchOutstanding o1, SearchOutstanding o2) {
-                        if(o1.getOutstanding() < o2.getOutstanding())
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return -1;
-                        }
-                    }
-                });
-                Collections.sort(advanceList , new Comparator<SearchOutstanding>() {
-                    @Override
-                    public int compare(SearchOutstanding o1, SearchOutstanding o2) {
-                        if(o1.getOutstanding() < o2.getOutstanding())
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return -1;
-                        }
-                    }
-                });
-
-
-
-
-
-                List<SearchOutstanding> newList = new ArrayList<>();
-                newList.addAll(outstandingList);
-                newList.addAll(advanceList);
-
-
-
-
-
-                removeDuplicates1(newList);
-
-
-                SearchAdapter searchAdapter = new SearchAdapter(getActivity(), Paper.book().read("NewList"));
-                searchRecyclerView.setAdapter(searchAdapter);
+            for (String contactNumber : searchList) {
+                getSpecificOutstanding(contactNumber);
             }
-        },1000);
-
-
+        }
+        else
+        {
+            Log.d("kkk","is Added:sort search list:false");
+        }
 
 
 
@@ -533,35 +468,84 @@ public class SearchFragment extends Fragment {
                 outstanding=0;
 
 
-                for(DataSnapshot snapshot1 : snapshot.getChildren())
-                {
-                    Order order = snapshot1.getValue(Order.class);
-                    if(order.getOrderStatus().equals("Completed")) {
-                        if (order.getTransactionType().equals("Incoming")) {
-                            totalIncoming += order.getTotalAmount();
+                if(isAdded()) {
+                    Log.d("kkk","added");
 
-                        } else {
-                            totalOutgoing += order.getTotalAmount();
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        Order order = snapshot1.getValue(Order.class);
+                        if (order.getOrderStatus().equals("Completed")) {
+                            if (order.getTransactionType().equals("Incoming")) {
+                                totalIncoming += order.getTotalAmount();
+
+                            } else {
+                                totalOutgoing += order.getTotalAmount();
+                            }
                         }
+
+
+                    }
+
+                    if (totalIncoming < totalOutgoing) {
+                        outstanding = totalOutgoing - totalIncoming;
+                        SearchOutstanding searchOutstanding = new SearchOutstanding(mobileNumber, outstanding);
+                        outstandingList.add(searchOutstanding);
+
+
+                    } else {
+                        advance = totalIncoming - totalOutgoing;
+                        SearchOutstanding searchAdvance = new SearchOutstanding(mobileNumber, advance);
+                        advanceList.add(searchAdvance);
                     }
 
 
+                    Collections.sort(outstandingList, new Comparator<SearchOutstanding>() {
+                        @Override
+                        public int compare(SearchOutstanding o1, SearchOutstanding o2) {
+                            if (o1.getOutstanding() < o2.getOutstanding()) {
+                                return 1;
+                            } else {
+                                return -1;
+                            }
+                        }
+                    });
+                    Collections.sort(advanceList, new Comparator<SearchOutstanding>() {
+                        @Override
+                        public int compare(SearchOutstanding o1, SearchOutstanding o2) {
+                            if (o1.getOutstanding() < o2.getOutstanding()) {
+                                return 1;
+                            } else {
+                                return -1;
+                            }
+                        }
+                    });
+
+
+                    List<SearchOutstanding> newList = new ArrayList<>();
+                    newList.addAll(outstandingList);
+                    newList.addAll(advanceList);
+
+
+                    List<SearchOutstanding> searchOutstandings = removeDuplicates1(newList);
+
+                    searchList.clear();
+                    for (SearchOutstanding searchOutstanding : searchOutstandings) {
+                        searchList.add(searchOutstanding.getMobileNumber());
+                    }
+
+
+                    searchAdapter.notifyDataSetChanged();
+
+
                 }
 
-                if(totalIncoming < totalOutgoing)
-                {
-                    outstanding = totalOutgoing - totalIncoming;
-                    SearchOutstanding searchOutstanding = new SearchOutstanding(mobileNumber , outstanding);
-                    outstandingList.add(searchOutstanding);
-
-
-                }
                 else
                 {
-                    advance = totalIncoming - totalOutgoing;
-                    SearchOutstanding searchAdvance = new SearchOutstanding(mobileNumber , advance);
-                    advanceList.add(searchAdvance);
+                    Log.d("kkk","not added:");
                 }
+
+
+
+
 
 
 

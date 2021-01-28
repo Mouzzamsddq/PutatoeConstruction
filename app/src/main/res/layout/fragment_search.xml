@@ -53,12 +53,21 @@
         android:layout_below="@+id/searchLayout"/>
 
 
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/putatoeGreenColor"
+        android:id="@+id/circularProgressBar"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:padding="10dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/noOrderLayout"
         android:background="@drawable/no_border"
         android:backgroundTint="@color/putatoeBackground"

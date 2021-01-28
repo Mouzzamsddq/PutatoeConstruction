@@ -32,10 +32,10 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
 
 
     private Context context;
-    private List<SearchOutstanding> searchList;
+    private List<String> searchList;
     float totalIncoming, totalOutgoing,outstanding;
 
-    public SearchAdapter(Context context, List<SearchOutstanding> searchList) {
+    public SearchAdapter(Context context, List<String> searchList) {
         this.context = context;
         this.searchList = searchList;
         Paper.init(context);
@@ -52,7 +52,7 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        String customerNumber = searchList.get(position).getMobileNumber();
+        String customerNumber = searchList.get(position);
         holder.customerNumberTextView.setText(customerNumber);
 
         getCustomerName(holder.customerNameTextView , customerNumber);
