@@ -504,7 +504,7 @@ public class SearchFragment extends Fragment {
                 removeDuplicates1(newList);
 
 
-                SearchAdapter searchAdapter = new SearchAdapter(getContext() , Paper.book().read("NewList"));
+                SearchAdapter searchAdapter = new SearchAdapter(getActivity(), Paper.book().read("NewList"));
                 searchRecyclerView.setAdapter(searchAdapter);
             }
         },1000);

@@ -384,8 +384,26 @@ public class NewOrderActivity extends AppCompatActivity implements DatePicker.se
                             totalAmount = Float.parseFloat(totalAmountEditText.getText().toString());
                         }
 
-                        Owner owner = Paper.book().read("owner");
-                        String updatedByNumber = owner.getContact();
+
+
+
+
+                        String updatedByNumber="";
+                        if (Paper.book().read("userOrService").equals("owners")) {
+                            Owner owner = Paper.book().read("owners");
+                            updatedByNumber = owner.getContact();
+                        }
+                        else
+                        {
+                            Owner owner = Paper.book().read("owner");
+                            updatedByNumber = owner.getContact();
+
+                        }
+
+
+                        Log.d("updatedByNumber:",""+updatedByNumber);
+
+
                         getOrderNo();
 
                         String timestamp = String.valueOf(System.currentTimeMillis());
