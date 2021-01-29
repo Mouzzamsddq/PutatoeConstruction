@@ -45,7 +45,8 @@ import java.util.Locale;
 
 import io.paperdb.Paper;
 
-public class SpecificOrdersActivity extends AppCompatActivity {
+public class
+SpecificOrdersActivity extends AppCompatActivity {
 
 
     private TextView customerNameTextView,customerNumberTextView;

@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
@@ -75,11 +76,17 @@ public class SearchFragment extends Fragment {
 
 
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_search, container, false);
+
+
+
 
 
         searchRecyclerView = view.findViewById(R.id.searchRecyclerView);
@@ -158,6 +165,9 @@ public class SearchFragment extends Fragment {
 
         getAllNumbers();
 
+
+
+
         return  view;
     }
 
@@ -175,7 +185,6 @@ public class SearchFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(isAdded()) {
-                    Log.d("kkk","isAdded: all nmber true");
                     searchList.clear();
                     outstandingList.clear();
                     advanceList.clear();
@@ -200,10 +209,7 @@ public class SearchFragment extends Fragment {
                         searchRecyclerView.setVisibility(View.INVISIBLE);
                     }
                 }
-                else
-                {
-                    Log.d("kkk","is Added all number:false");
-                }
+
 
 
             }
@@ -219,7 +225,7 @@ public class SearchFragment extends Fragment {
 
     private void getFilteredList(String searchText) {
 
-        Log.d("kkk","getFilter By Number method called");
+
 
 
         outstandingList.clear();
@@ -305,8 +311,6 @@ public class SearchFragment extends Fragment {
 
 
 
-
-        Log.d("kkk","getFilterByNameMethod called");
         outstandingList.clear();
         advanceList.clear();
 
@@ -435,16 +439,13 @@ public class SearchFragment extends Fragment {
 
         if(isAdded()) {
 
-            Log.d("kkk","is Added:sort search List:true");
+
 
             for (String contactNumber : searchList) {
                 getSpecificOutstanding(contactNumber);
             }
         }
-        else
-        {
-            Log.d("kkk","is Added:sort search list:false");
-        }
+
 
 
 
@@ -469,7 +470,7 @@ public class SearchFragment extends Fragment {
 
 
                 if(isAdded()) {
-                    Log.d("kkk","added");
+
 
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                         Order order = snapshot1.getValue(Order.class);
@@ -538,10 +539,7 @@ public class SearchFragment extends Fragment {
 
                 }
 
-                else
-                {
-                    Log.d("kkk","not added:");
-                }
+
 
 
 
@@ -565,6 +563,8 @@ public class SearchFragment extends Fragment {
 
 
     }
+
+
 
 
 }

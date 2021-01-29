@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.putatoe.putatoeconstructionserviceprovider.Adapter.ViewPagerAdapter;
@@ -33,6 +35,9 @@ public class AllActivityFragment extends Fragment {
 
     static ViewPagerAdapter viewPagerAdapter;
 
+    //creating a image view for summary icon
+    private ImageView summaryIconImageView;
+
 
 
 
@@ -47,10 +52,26 @@ public class AllActivityFragment extends Fragment {
         viewPager =view.findViewById(R.id.viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
+        //init the summary icon image view
+        summaryIconImageView = view.findViewById(R.id.summaryIcon);
+
+
+        //when click onn the summary icon
+        summaryIconImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                //show the business summary dialog
+                BusinessSummaryDialog businessSummaryDialog = new BusinessSummaryDialog();
+                businessSummaryDialog.show(getFragmentManager(),"businessSummary");
+
+
+            }
+        });
+
         setUpViewPager();
 
-//        viewPager.setCurrentItem(0);
-        Log.d("ViewPager","In On Create AllActivity");
 
 
         return view;
