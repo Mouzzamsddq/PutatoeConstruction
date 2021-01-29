@@ -3,6 +3,7 @@ package com.putatoe.putatoeconstructionserviceprovider.Fragment;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.putatoe.putatoeconstructionserviceprovider.POJO.Order;
 import com.putatoe.putatoeconstructionserviceprovider.R;
 
 import io.paperdb.Paper;
@@ -20,8 +27,16 @@ public class BusinessSummaryDialog  extends DialogFragment {
     private Button okButton;
     private TextView incomingTextView,outgoingTextView,customerNameTextView;
     String mobileNumber;
-    float totalIncoming,totalOutgoing;
+    double totalOutstanding;
+    double totalAdvance;
     private TextView incomingText,outgoingText;
+
+
+    public BusinessSummaryDialog(double totalOutstanding , double totalAdvance) {
+
+        this.totalOutstanding=totalOutstanding;
+        this.totalAdvance = totalAdvance;
+    }
 
     @NonNull
     @Override
@@ -39,6 +54,15 @@ public class BusinessSummaryDialog  extends DialogFragment {
 
         incomingText.setText("Total Advance");
         outgoingText.setText("Total Outstanding");
+
+        outgoingTextView.setText("₹"+totalOutstanding);
+        incomingTextView.setText("₹"+totalAdvance);
+
+
+
+
+
+
 
 
 
@@ -58,4 +82,8 @@ public class BusinessSummaryDialog  extends DialogFragment {
         builder.setView(view);
         return builder.create();
     }
+
+
+
+
 }

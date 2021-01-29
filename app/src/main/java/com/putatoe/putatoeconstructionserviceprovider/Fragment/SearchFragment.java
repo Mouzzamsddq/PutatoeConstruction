@@ -521,6 +521,9 @@ public class SearchFragment extends Fragment {
                     });
 
 
+
+
+
                     List<SearchOutstanding> newList = new ArrayList<>();
                     newList.addAll(outstandingList);
                     newList.addAll(advanceList);

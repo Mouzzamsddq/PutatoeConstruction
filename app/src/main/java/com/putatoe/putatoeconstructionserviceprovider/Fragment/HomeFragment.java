@@ -597,8 +597,8 @@ public class HomeFragment extends Fragment  implements DatePicker.selectedDate {
                             Order order = new Order(customerName, customerNumber, materialType,quantityTypeTextView.getText().toString(), description, updatedByName, updatedByNumber,"#"+Paper.book().read("order"),transactionType
                                     ,timestamp,orderStatus,completionDate,totalAmount,quantity);
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(
-                                    getResources().getString(R.string.database_url)+Paper.book().read("BuisnessName") +"/ALLACTIVITY/ORDERS"
-                            ).child(customerNumber);
+                                    getResources().getString(R.string.database_url)+Paper.book().read("BuisnessName") +"/ALLACTIVITY"
+                            ).child("ORDERS").child(customerNumber);
 
 
                             databaseReference.child(Paper.book().read("order")).setValue(order).addOnCompleteListener(new OnCompleteListener<Void>() {
