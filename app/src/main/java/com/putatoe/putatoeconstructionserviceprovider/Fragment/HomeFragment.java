@@ -1,6 +1,7 @@
 package com.putatoe.putatoeconstructionserviceprovider.Fragment;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 
 import com.putatoe.putatoeconstructionserviceprovider.DatePicker;
 import com.putatoe.putatoeconstructionserviceprovider.LoginActivity;
+import com.putatoe.putatoeconstructionserviceprovider.NewOrderActivity;
 import com.putatoe.putatoeconstructionserviceprovider.POJO.Order;
 import com.putatoe.putatoeconstructionserviceprovider.POJO.Owner;
 import com.putatoe.putatoeconstructionserviceprovider.R;
@@ -123,6 +125,9 @@ public class HomeFragment extends Fragment  implements DatePicker.selectedDate {
 
 
 
+    private ProgressDialog progressDialog;
+
+
 
 
 
@@ -144,14 +149,16 @@ public class HomeFragment extends Fragment  implements DatePicker.selectedDate {
 
 
 
-        if(Paper.book().read("userOrService").equals("owners"))
-        {
-            Log.d("kkk","Login as a owner");
-        }
-        else
-        {
-            Log.d("kkk","Login as a employee");
-        }
+
+
+        //initialize progress dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Updating New Order...");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setTitle("New Order");
+
+
 
 
 
@@ -590,6 +597,8 @@ public class HomeFragment extends Fragment  implements DatePicker.selectedDate {
 
                         if (validatePhone()) {
 
+                            progressDialog.show();
+
                             if(TextUtils.isEmpty(customerNumber))
                             {
                                 customerNumber="null";
@@ -613,6 +622,7 @@ public class HomeFragment extends Fragment  implements DatePicker.selectedDate {
                                         databaseReference1.child("orders").setValue(Paper.book().read("orderNo"));
 
                                         Intent intent = getActivity().getIntent();
+                                        progressDialog.dismiss();
                                         getActivity().finish();
                                         startActivity(intent);
                                     }
