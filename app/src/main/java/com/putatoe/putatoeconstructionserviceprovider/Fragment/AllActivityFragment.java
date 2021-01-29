@@ -117,8 +117,6 @@ public class AllActivityFragment extends Fragment {
 
         viewPager.setAdapter(viewPagerAdapter);
 
-
-
     }
 
 

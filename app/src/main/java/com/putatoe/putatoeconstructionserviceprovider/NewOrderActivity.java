@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -103,6 +105,10 @@ public class NewOrderActivity extends AppCompatActivity implements DatePicker.se
     private TextView completionDateTextView;
 
 
+    //create a new progress dialog object
+    private ProgressDialog progressDialog;
+
+
 
 
 
@@ -132,6 +138,16 @@ public class NewOrderActivity extends AppCompatActivity implements DatePicker.se
         pendingCheckBox = findViewById(R.id.pendingCheckBox);
         completeCheckBox = findViewById(R.id.completeCheckBox);
         completionDateTextView = findViewById(R.id.completionDateTextView);
+
+
+        //initialize progress dialog
+        progressDialog = new ProgressDialog(NewOrderActivity.this);
+        progressDialog.setMessage("Updating New Order...");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setTitle("New Order");
+
+
 
 
 
@@ -521,6 +537,8 @@ public class NewOrderActivity extends AppCompatActivity implements DatePicker.se
 
                         if (validatePhone()) {
 
+                            progressDialog.show();
+
                             if(TextUtils.isEmpty(customerNumber))
                             {
                                 customerNumber="null";
@@ -548,6 +566,7 @@ public class NewOrderActivity extends AppCompatActivity implements DatePicker.se
                                         Paper.book().write("specificName",Paper.book().read("specificName"));
                                         Intent intent = new Intent(getApplicationContext() , SpecificOrdersActivity.class);
                                         startActivity(intent);
+                                        progressDialog.dismiss();
                                         finish();
 
                                     }
