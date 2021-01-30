@@ -14,6 +14,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.putatoe.putatoeconstructionserviceprovider.Fragment.DeliveredOrderFragment;
+import com.putatoe.putatoeconstructionserviceprovider.Fragment.PendingSummaryFragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -118,9 +119,12 @@ public class DatePicker  extends DialogFragment implements  DatePickerDialog.OnD
 //            selectedDateListener = (selectedDate) getFragmentManager().getFragments().get(1);
 
             fragmentList = getFragmentManager().getFragments();
+
+
+            Log.d("kkk","Fragment List:"+fragmentList.toString());
             for(Fragment fragment : fragmentList)
             {
-                if(fragment instanceof DeliveredOrderFragment)
+                if(fragment instanceof DeliveredOrderFragment || fragment instanceof PendingSummaryFragment)
                 {
                     selectedDateListener  = (selectedDate) fragment;
                 }

@@ -52,8 +52,8 @@ public class BusinessSummaryDialog  extends DialogFragment {
         incomingText = view.findViewById(R.id.text1);
         outgoingText = view.findViewById(R.id.text2);
 
-        incomingText.setText("Total Advance");
-        outgoingText.setText("Total Outstanding");
+        incomingText.setText("Advance");
+        outgoingText.setText("Outstanding");
 
         outgoingTextView.setText("₹"+totalOutstanding);
         incomingTextView.setText("₹"+totalAdvance);
