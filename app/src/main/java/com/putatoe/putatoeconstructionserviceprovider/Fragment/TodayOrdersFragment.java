@@ -91,14 +91,18 @@ public class TodayOrdersFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 todayOrderList.clear();
+                Log.d("kkk","data snapshot  children count:"+snapshot.getChildrenCount());
                 for(DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
+
+
 
                     for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                     {
                         Order order = dataSnapshot1.getValue(Order.class);
                         String timestamp  = order.getCompletionDate();
                         //convert timestamp to dd/mm/yyyy mm:hh am/pm
+                        Log.d("kkk","order id:"+order.getOrderId());
                         Calendar calendar = Calendar.getInstance(Locale.getDefault());
                         calendar.setTimeInMillis(Long.parseLong(timestamp));
                         String postedDate= DateFormat.format("dd-MM-yyyy",calendar).toString();
